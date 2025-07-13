@@ -1,22 +1,37 @@
 # BARE BONES CloudCannon Configuration - Testing Only
 
-# Build Configuration
+# Build Configuration with timeout
 build:
   command: npm run build
   output: dist/
+  environment:
+    - NODE_ENV=production
+  timeout: 600  # 10 minutes timeout
 
 # Source Configuration (root level)
 source:
   path: ./
 
-# Collections
+# Simplified Collections
 collections_config:
   pages:
     path: src/pages/
     name: Pages
-    parser: astro
 
 # Basic Paths
 paths:
   static: public
-  uploads: public 
+  uploads: public
+
+# Prevent watch mode issues
+dev:
+  command: npm run dev
+  output: dist/
+  
+# Additional settings to prevent loops
+editor:
+  default_path: /
+  
+# Disable auto-reload during build
+data_config:
+  timezone: UTC 
