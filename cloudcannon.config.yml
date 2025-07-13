@@ -1,0 +1,22 @@
+# BARE BONES CloudCannon Configuration - Testing Only
+
+# Build Configuration
+build:
+  command: npm run build
+  output: dist/
+
+# Source Configuration (root level)
+source:
+  path: ./
+
+# Collections
+collections_config:
+  pages:
+    path: src/pages/
+    name: Pages
+    parser: astro
+
+# Basic Paths
+paths:
+  static: public
+  uploads: public 
